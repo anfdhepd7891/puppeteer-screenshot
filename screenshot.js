@@ -14,12 +14,7 @@ const compare = (a, b) => {
 };
 
 module.exports = async function (req, res) {
-    if (!compare(req.query.key, SECRET_KEY)) {
-        res.statusCode = 403;
-        res.setHeader('Content-Type', 'text/html');
-        res.end('<h1>Bad ?key=</h1><p>Permission denied</p>');
-        return;
-    }
+ 
     try {
         const { pathname = '/', query = {} } = parse(req.url, true);
         const { type = 'png', quality, fullPage } = query;
