@@ -14,7 +14,8 @@ async function getScreenshot(url, type, quality, fullPage, viewportWidth, viewpo
     });
 
     const page = await browser.newPage();
-     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
+       await page.setCacheEnabled(false);
+     await page.setUserAgent('Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36');
     await page.goto(url);
     const file = await page.screenshot({ type,  quality, fullPage });
     await browser.close();
