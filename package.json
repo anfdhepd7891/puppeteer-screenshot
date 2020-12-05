@@ -9,6 +9,6 @@
     "puppeteer-core": "5.2.1"
   },
    "scripts": {
-    "build": "yum install fonts-korean -y"
+    "build": "yum -y install kde-18in-Korean && yum -y install fonts-korean"
   }
 }
