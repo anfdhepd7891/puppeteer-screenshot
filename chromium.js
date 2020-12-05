@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer-core');
 
 async function getScreenshot(url, type, quality, fullPage, viewportWidth, viewportHeight) {
     const browser = await puppeteer.launch({
-        args: ['--user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/14A403 Safari/602.1'],
+        args: chrome.args,
         executablePath: await chrome.executablePath,
         headless: chrome.headless,
        
@@ -14,6 +14,7 @@ async function getScreenshot(url, type, quality, fullPage, viewportWidth, viewpo
     });
 
     const page = await browser.newPage();
+     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36');
     await page.goto(url);
     const file = await page.screenshot({ type,  quality, fullPage });
     await browser.close();
